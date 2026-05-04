@@ -124,23 +124,7 @@
     margin-bottom: 0;
   }
 
-  .btn-add {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--teal-dark);
-    color: var(--white);
-    border: none;
-    padding: 9px 18px;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.18s, transform 0.12s;
-  }
-  .btn-add:hover { background: var(--teal-mid); transform: translateY(-1px); }
-  .btn-add svg { width: 14px; height: 14px; }
+
 
   /* ── Grid ── */
   .cards-grid {
@@ -203,28 +187,7 @@
     flex-shrink: 0;
   }
 
-  .card-actions {
-    display: flex;
-    gap: 4px;
-    opacity: 0;
-    transition: opacity 0.18s;
-  }
-  .app-card:hover .card-actions { opacity: 1; }
 
-  .card-action-btn {
-    width: 28px; height: 28px;
-    border: 1px solid var(--cream-dark);
-    background: var(--cream);
-    border-radius: 6px;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    font-size: 12px;
-    color: var(--text-muted);
-    transition: background 0.14s, color 0.14s;
-  }
-  .card-action-btn:hover { background: var(--teal-pale); color: var(--teal-dark); }
-  .card-action-btn.del:hover { background: #fff0f0; color: var(--red-accent); border-color: #ffcccc; }
 
   .card-name {
     font-size: 15px;
@@ -282,125 +245,7 @@
   .empty-state .icon { font-size: 40px; margin-bottom: 12px; }
   .empty-state p { font-size: 14px; }
 
-  /* ── Modal ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(29,61,61,0.35);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal-overlay.open { display: flex; }
 
-  .modal {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 32px;
-    width: 440px;
-    max-width: calc(100vw - 40px);
-    box-shadow: var(--shadow-lg);
-    animation: slideUp 0.22s ease;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .modal h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--teal-dark);
-  }
-
-  .modal-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
-
-  .form-row {
-    margin-bottom: 16px;
-  }
-
-  .form-row label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .form-row input,
-  .form-row textarea,
-  .form-row select {
-    width: 100%;
-    border: 1.5px solid var(--cream-dark);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    color: var(--text-main);
-    background: var(--cream);
-    transition: border-color 0.15s;
-    outline: none;
-  }
-
-  .form-row input:focus,
-  .form-row textarea:focus,
-  .form-row select:focus {
-    border-color: var(--teal-light);
-    background: var(--white);
-  }
-
-  .form-row textarea { resize: vertical; min-height: 72px; }
-
-  .icon-select-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 24px;
-    justify-content: flex-end;
-  }
-
-  .btn-cancel {
-    padding: 9px 18px;
-    border: 1.5px solid var(--cream-dark);
-    background: var(--cream);
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: background 0.14s;
-  }
-  .btn-cancel:hover { background: var(--cream-dark); }
-
-  .btn-save {
-    padding: 9px 22px;
-    background: var(--teal-dark);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-  .btn-save:hover { background: var(--teal-mid); }
 
   /* ── Search ── */
   .search-wrap {
@@ -487,56 +332,17 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <input class="search-input" id="searchInput" type="text" placeholder="Search apps…" oninput="renderCards()">
     </div>
-    <button class="btn-add" onclick="openModal()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-      Add App
-    </button>
+
   </div>
 
   <div class="section-label" id="grid-label">All Apps</div>
   <div class="cards-grid" id="cardsGrid"></div>
 </main>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal">
-    <h2 id="modalTitle">Add New App</h2>
-    <p class="modal-sub">Enter the details for your local service or dashboard.</p>
 
-    <div class="form-row">
-      <label>App Name</label>
-      <input type="text" id="fName" placeholder="e.g. HR Dashboard">
-    </div>
-    <div class="form-row">
-      <label>URL / IP Address</label>
-      <input type="text" id="fUrl" placeholder="e.g. 192.168.1.10:3000">
-    </div>
-    <div class="form-row">
-      <label>Description</label>
-      <textarea id="fDesc" placeholder="Brief description of what this app does…"></textarea>
-    </div>
-    <div class="icon-select-row">
-      <div class="form-row" style="margin-bottom:0">
-        <label>Icon (emoji)</label>
-        <input type="text" id="fIcon" placeholder="📊" maxlength="4">
-      </div>
-      <div class="form-row" style="margin-bottom:0">
-        <label>Category</label>
-        <input type="text" id="fCat" placeholder="e.g. HR, Finance…">
-      </div>
-    </div>
-
-    <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeModalDirect()">Cancel</button>
-      <button class="btn-save" onclick="saveApp()">Save App</button>
-    </div>
-  </div>
-</div>
 
 <script>
   // ── Data ──────────────────────────────────────────────────────────
-  const STORAGE_KEY = 'intermed_launchpad_v1';
-
   const PALETTE = [
     { accent: '#3d8080', iconBg: '#e6f4f4', tagBg: '#e6f4f4', tagColor: '#2a6060' },
     { accent: '#4a7c59', iconBg: '#e8f5ed', tagBg: '#e8f5ed', tagColor: '#2e5c38' },
@@ -546,28 +352,16 @@
     { accent: '#2176ae', iconBg: '#e3f0fb', tagBg: '#e3f0fb', tagColor: '#144f80' },
   ];
 
-  let apps = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let editingId = null;
-
-  if (!apps) {
-    apps = [
-      {
-        id: 'app_1',
-        name: 'HR Dashboard',
-        url: '192.168.223.88:3000',
-        desc: 'Live workforce overview — headcount, demographics, turnover metrics, and employment breakdown.',
-        icon: '👥',
-        category: 'HR',
-        paletteIdx: 0,
-        created: Date.now()
-      }
-    ];
-    save();
-  }
-
-  function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(apps));
-  }
+  const apps = [
+    {
+      name: 'HR Dashboard',
+      url: '192.168.223.88:3000',
+      desc: 'Live workforce overview — headcount, demographics, turnover metrics, and employment breakdown.',
+      icon: '👥',
+      category: 'HR',
+      paletteIdx: 0,
+    }
+  ];
 
   // ── Clock ─────────────────────────────────────────────────────────
   function updateClock() {
@@ -612,10 +406,7 @@
            onclick="navigate('${href}')" role="link" tabindex="0">
         <div class="card-header">
           <div class="card-icon">${app.icon || '🌐'}</div>
-          <div class="card-actions">
-            <button class="card-action-btn" title="Edit" onclick="event.stopPropagation();editApp('${app.id}')">✏️</button>
-            <button class="card-action-btn del" title="Delete" onclick="event.stopPropagation();deleteApp('${app.id}')">🗑</button>
-          </div>
+
         </div>
         <div class="card-name">${app.name}</div>
         <div class="card-desc">${app.desc || 'No description provided.'}</div>
@@ -630,74 +421,6 @@
   function navigate(href) {
     window.open(href, '_blank');
   }
-
-  // ── Modal ─────────────────────────────────────────────────────────
-  function openModal(prefill) {
-    editingId = prefill ? prefill.id : null;
-    document.getElementById('modalTitle').textContent = editingId ? 'Edit App' : 'Add New App';
-    document.getElementById('fName').value  = prefill?.name     || '';
-    document.getElementById('fUrl').value   = prefill?.url      || '';
-    document.getElementById('fDesc').value  = prefill?.desc     || '';
-    document.getElementById('fIcon').value  = prefill?.icon     || '';
-    document.getElementById('fCat').value   = prefill?.category || '';
-    document.getElementById('modalOverlay').classList.add('open');
-    setTimeout(() => document.getElementById('fName').focus(), 80);
-  }
-
-  function closeModal(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
-  }
-  function closeModalDirect() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    editingId = null;
-  }
-
-  function saveApp() {
-    const name = document.getElementById('fName').value.trim();
-    const url  = document.getElementById('fUrl').value.trim();
-    if (!name || !url) { alert('Name and URL are required.'); return; }
-
-    if (editingId) {
-      const idx = apps.findIndex(a => a.id === editingId);
-      apps[idx] = { ...apps[idx],
-        name, url,
-        desc:     document.getElementById('fDesc').value.trim(),
-        icon:     document.getElementById('fIcon').value.trim() || '🌐',
-        category: document.getElementById('fCat').value.trim(),
-      };
-    } else {
-      apps.push({
-        id: 'app_' + Date.now(),
-        name, url,
-        desc:       document.getElementById('fDesc').value.trim(),
-        icon:       document.getElementById('fIcon').value.trim() || '🌐',
-        category:   document.getElementById('fCat').value.trim(),
-        paletteIdx: apps.length % PALETTE.length,
-        created:    Date.now()
-      });
-    }
-    save();
-    closeModalDirect();
-    renderCards();
-  }
-
-  function editApp(id) {
-    const app = apps.find(a => a.id === id);
-    if (app) openModal(app);
-  }
-
-  function deleteApp(id) {
-    if (!confirm('Remove this app from the launchpad?')) return;
-    apps = apps.filter(a => a.id !== id);
-    save();
-    renderCards();
-  }
-
-  // ── Keyboard ──────────────────────────────────────────────────────
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModalDirect();
-    if (e.key === 'Enter' && document.getElementById('modalOverlay').classList.contains('open')) saveApp();
-  });
 
   // ── Init ──────────────────────────────────────────────────────────
   renderCards();
